@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
     public Text displayText;
 
     [HideInInspector] public RoomNavigation roomNavigation;
+    [HideInInspector] public List<string> interactionDescriptionsInRoom = new List<string>();
+
     List<string> actionLog = new List<string>();
 
     // Start is called before the first frame update
@@ -24,14 +26,21 @@ public class GameController : MonoBehaviour
 
     public void DisplayLoggedText()
     {
-        string logAsText = string.Join("\n",actionLog.ToArray() );
-        displayText.text = logAsText ;
+        string logAsText = string.Join("\n", actionLog.ToArray());
+        displayText.text = logAsText;
     }
 
     public void DisplayRoomText()
     {
-        string combinedText = roomNavigation.currentRoom.description + "\n";
+        UnpackRoom();
+        string joinedInteractionDescriptions = string.Join("\n", interactionDescriptionsInRoom.ToArray());
+        string combinedText = roomNavigation.currentRoom.description + "\n" + joinedInteractionDescriptions;
         LogStringWithReturn(combinedText);
+    }
+
+    void UnpackRoom()
+    {
+        roomNavigation.UnpackExitsInRoom();
     }
 
     public void LogStringWithReturn(string stringToAdd)
@@ -42,6 +51,6 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
