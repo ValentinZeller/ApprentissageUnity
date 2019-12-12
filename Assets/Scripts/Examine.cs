@@ -7,6 +7,6 @@ public class Examine : InputAction
 {
     public override void RespondToInput(GameController controller, string[] separatedInputWords)
     {
-        controller.LogStringWithReturn(controller.TestVerbDictionnaryWithNoun(controller.interactableItems.examineDictionnary, separatedInputWords[0], separatedInputWords[1]));
+        controller.LogStringWithReturn(controller.TestVerbDictionnaryWithNoun(controller.interactableItems.examineDictionary, separatedInputWords[0], separatedInputWords[1]));
     }
 }

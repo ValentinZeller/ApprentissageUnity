@@ -64,7 +64,11 @@ public class GameController : MonoBehaviour
                 Interaction interaction = interactableInRoom.interactions[j];
                 if (interaction.inputAction.keyWord == "examine")
                 {
-                    interactableItems.examineDictionnary.Add(interactableInRoom.noun,interaction.textReponse);
+                    interactableItems.examineDictionary.Add(interactableInRoom.noun,interaction.textReponse);
+                }
+                if (interaction.inputAction.keyWord == "take")
+                {
+                    interactableItems.takeDictionary.Add(interactableInRoom.noun, interaction.textReponse);
                 }
             }
         }
