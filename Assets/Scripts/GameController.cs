@@ -10,12 +10,14 @@ public class GameController : MonoBehaviour
 
     [HideInInspector] public RoomNavigation roomNavigation;
     [HideInInspector] public List<string> interactionDescriptionsInRoom = new List<string>();
+    [HideInInspector] public InteractableItems interactableItems;
 
     List<string> actionLog = new List<string>();
 
     // Start is called before the first frame update
     void Awake()
     {
+        interactableItems = GetComponent<InteractableItems>();
         roomNavigation = GetComponent<RoomNavigation>();
     }
 
@@ -43,6 +45,19 @@ public class GameController : MonoBehaviour
     void UnpackRoom()
     {
         roomNavigation.UnpackExitsInRoom();
+        PrepareObjectsToTakeOrExamine(roomNavigation.currentRoom);
+    }
+
+    void PrepareObjectsToTakeOrExamine(Room currentRoom)
+    {
+        for (int i = 0; i < currentRoom.interactableObjectsInRoom.Length; i++)
+        {
+            string descriptionNotInInventory = interactableItems.GetObjectsNotInInventory(currentRoom,i) ;
+            if (descriptionNotInInventory != null)
+            {
+                interactionDescriptionsInRoom.Add(descriptionNotInInventory);
+            }
+        }
     }
 
     void ClearCollectionForNewRoom()
