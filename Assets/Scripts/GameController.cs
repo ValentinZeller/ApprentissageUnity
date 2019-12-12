@@ -57,11 +57,31 @@ public class GameController : MonoBehaviour
             {
                 interactionDescriptionsInRoom.Add(descriptionNotInInventory);
             }
+
+            InteractableObject interactableInRoom = currentRoom.interactableObjectsInRoom[i];
+            for (int j = 0; j < interactableInRoom.interactions.Length; j++)
+            {
+                Interaction interaction = interactableInRoom.interactions[j];
+                if (interaction.inputAction.keyWord == "examine")
+                {
+                    interactableItems.examineDictionnary.Add(interactableInRoom.noun,interaction.textReponse);
+                }
+            }
         }
+    }
+
+    public string TestVerbDictionnaryWithNoun(Dictionary<string,string> verbDictionnary, string verb, string noun)
+    {
+        if (verbDictionnary.ContainsKey(noun))
+        {
+            return verbDictionnary[noun];
+        }
+        return "You can't " + verb + " " + noun;
     }
 
     void ClearCollectionForNewRoom()
     {
+        interactableItems.ClearCollections();
         interactionDescriptionsInRoom.Clear();
         roomNavigation.ClearExits();
     }
