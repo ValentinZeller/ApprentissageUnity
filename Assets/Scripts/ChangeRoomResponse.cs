@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu (menuName = "TextAdventure/ActionResponses/ChangeRoom")]
+[CreateAssetMenu(menuName = "TextAdventure/ActionResponses/ChangeRoom")]
 public class ChangeRoomResponse : ActionResponse
 {
     public Room roomToChange;
