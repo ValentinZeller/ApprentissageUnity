@@ -6,46 +6,62 @@ public class InteractableItems : MonoBehaviour
 {
     public Dictionary<string, string> examineDictionary = new Dictionary<string, string>();
     public Dictionary<string, string> takeDictionary = new Dictionary<string, string>();
+
+    [HideInInspector] public List<string> nounsInRoom = new List<string>();
+
+    List<string> nounsInInventory = new List<string>();
     GameController controller;
 
-    private void Awake()
+    void Awake()
     {
         controller = GetComponent<GameController>();
     }
 
-    [HideInInspector] public List<string> nounsInRoom = new List<string>();
-    List<string> nounsInInventory = new List<string>();
-
     public string GetObjectsNotInInventory(Room currentRoom, int i)
     {
         InteractableObject interactableInRoom = currentRoom.interactableObjectsInRoom[i];
+
         if (!nounsInInventory.Contains(interactableInRoom.noun))
         {
             nounsInRoom.Add(interactableInRoom.noun);
             return interactableInRoom.description;
         }
+
         return null;
+    }
+
+    public void DisplayInventory()
+    {
+        controller.LogStringWithReturn("You look in your backpack, inside you have: ");
+
+        for (int i = 0; i < nounsInInventory.Count; i++)
+        {
+            controller.LogStringWithReturn(nounsInInventory[i]);
+        }
     }
 
     public void ClearCollections()
     {
         examineDictionary.Clear();
         takeDictionary.Clear();
-        nounsInInventory.Clear();
+        nounsInRoom.Clear();
     }
 
-    public Dictionary<string,string> Take(string[] separatedInputWords)
+    public Dictionary<string, string> Take(string[] separatedInputWords)
     {
         string noun = separatedInputWords[1];
-        if (nounsInRoom.Contains(noun)) {
+
+        if (nounsInRoom.Contains(noun))
+        {
             nounsInInventory.Add(noun);
-            nounsInInventory.Remove(noun);
+            nounsInRoom.Remove(noun);
             return takeDictionary;
-        } else
+        }
+        else
         {
             controller.LogStringWithReturn("There is no " + noun + " here to take.");
             return null;
         }
-        
     }
+
 }
