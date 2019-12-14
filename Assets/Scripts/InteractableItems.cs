@@ -106,4 +106,25 @@ public class InteractableItems : MonoBehaviour
         }
     }
 
+    public void UseItem(string[] separatedInputWords)
+    {
+        string nounToUse = separatedInputWords[1];
+        if (nounsInInventory.Contains(nounToUse))
+        {
+            if (useDictionary.ContainsKey(nounToUse))
+            {
+                bool actionResult = useDictionary[nounToUse].DoActionResponse(controller);
+                if (!actionResult)
+                {
+                    controller.LogStringWithReturn("Hmm. Nothing happens.");
+                }
+            } else
+            {
+                controller.LogStringWithReturn("You can't use the " + nounToUse);
+            }
+        } else
+        {
+            controller.LogStringWithReturn("There is no " + nounToUse + " in your inventory to use."); 
+        }
+    }
 }
