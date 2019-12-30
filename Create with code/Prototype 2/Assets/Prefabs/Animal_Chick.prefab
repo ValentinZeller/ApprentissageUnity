@@ -100,6 +100,8 @@ GameObject:
   - component: {fileID: 751014367876088603}
   - component: {fileID: 751014369069740417}
   - component: {fileID: 4452204793539636739}
+  - component: {fileID: 2046079714570404126}
+  - component: {fileID: 1744984073}
   m_Layer: 0
   m_Name: Animal_Chick
   m_TagString: Untagged
@@ -165,6 +167,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 150b11c76ae63ee43922a2ab862597c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2046079714570404126
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751014367883475629}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.146536, y: 8.513586, z: 6.910419}
+  m_Center: {x: 0.13126531, y: 2.7333944, z: 0.23139846}
+--- !u!114 &1744984073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751014367883475629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb9f9b36c4a19914a8b270468cd2cb43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &751014367883476645
