@@ -15,5 +15,5 @@
 
 ## Intermediate 3D Game Development
 * Tanks : [100%](https://github.com/ValentinZeller/ApprentissageUnity/tree/tanks)
-* Tower Defense Template : [0%]()
-* 2D Roguelike : [0%]()
+* Tower Defense Template : [100%](https://github.com/ValentinZeller/ApprentissageUnity/tree/tower_defense)
+* 2D Roguelike : [0%](https://github.com/ValentinZeller/ApprentissageUnity/tree/roguelike)
