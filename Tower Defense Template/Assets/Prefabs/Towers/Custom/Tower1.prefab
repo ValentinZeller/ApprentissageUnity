@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 228974063}
   - component: {fileID: 228974065}
   - component: {fileID: 228974064}
+  - component: {fileID: 4025025010958975312}
+  - component: {fileID: 8032233392858873531}
+  - component: {fileID: 4559694756797498304}
   m_Layer: 0
   m_Name: Affector
   m_TagString: Untagged
@@ -61,12 +64,67 @@ MonoBehaviour:
   projectile: {fileID: 1977158881363050, guid: b478dc57751e64614acb9e2707cdd30c, type: 3}
   projectilePoints:
   - {fileID: 4958104626598082, guid: b478dc57751e64614acb9e2707cdd30c, type: 3}
-  epicenter: {fileID: 4958104626598082, guid: b478dc57751e64614acb9e2707cdd30c, type: 3}
+  epicenter: {fileID: 8960833782277456046}
   isMultiAttack: 0
   fireRate: 1
   randomAudioSource: {fileID: 0}
   towerTargetter: {fileID: 485202391}
   radiusEffectColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &4025025010958975312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228974062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e4035901ee40bba7c0866d2c6338a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turret: {fileID: 8960833782277456046}
+  turretXRotationRange: {x: 0, y: 359}
+  onlyYTurretRotation: 0
+  searchRate: 0
+  idleRotationSpeed: 39
+  idleCorrectionTime: 2
+  attachedCollider: {fileID: 0}
+  idleWaitTime: 2
+--- !u!114 &8032233392858873531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228974062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64dfe94c3cd6432db9993a2305627462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  description: 
+  radiusEffectColor: {r: 0, g: 0, b: 0, a: 0}
+  towerTargetter: {fileID: 485202391}
+  slowFactor: 0.489
+  slowFactorFormat: <b>Slow Factor:</b> {0}
+  enterParticleSystem: {fileID: 198278080792148898, guid: a4e0e87699dbd400aaf85d616d2618f8,
+    type: 3}
+  slowFxPrefab: {fileID: 1337568691461264, guid: aeef7b8d79b23415c9c75f54ec09a598,
+    type: 3}
+  audioSource: {fileID: 0}
+--- !u!135 &4559694756797498304
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228974062}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &485202388
 GameObject:
   m_ObjectHideFlags: 0
